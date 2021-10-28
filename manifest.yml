@@ -1,0 +1,4 @@
+applications:
+- name: Quiz2-Rahul-Tevatia-rxt0208
+  random-route: true
+  memory: 64M

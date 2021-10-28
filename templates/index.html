@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Nishank Gujar Quiz 2</title>
+</head>
+
+<body>
+
+	<main class="container-fluid" style="width: 70%;">
+		<h1 style="text-align: center;">Name : Nishank Gujar</h1>
+		<h1 style="text-align: center;">Student ID : 1001861756</h1>
+		<hr>
+		<h4 style="text-align: center;">Query 1: Find the number of earthquakes</h4>
+		<hr>
+		
+			<form  action="/query1" method="POST">
+				<input type="number" class="form-group-input" name="magnitude"
+					placeholder="Search Earthquakes for magnitude greater than" />
+				<br><br>
+				<input type="submit" class="btn-success" name="query_1_submit" value="Search">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 2: Find based on magnitude and date range</h4>
+		<hr>
+			
+			<form action="/query2" method="post">
+				<input type="number" step="0.01" name="start_magnitude" placeholder="Magnitude start range">
+				<br><br>
+				<input type="number" step="0.01" name="end_magnitude" placeholder="Magnitude end range">
+				<br>
+				<br>
+				<input type="radio" name="dates" value="all" checked> Select All Dates </input><br>
+				<h5>or</h5>
+				<input type="radio" name="dates" value="date"> Select Date range </input><br>
+				<br>
+				<input type="date" name="start_range" placeholder="Start Date">
+				<br><br>
+				<input type="date" name="end_range" placeholder="End Date">
+				<br><br>
+				<input class="btn-success" type="submit" name="query_2_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4  style="text-align: center;">Query 3: Get magnitude by point increment</h4>
+		<hr>
+		
+			<form action="/querymagp" method="post">
+				<input type="number" step="0.01" name="start_magnitude" placeholder="Magnitued Start">
+				<br><br>
+				<input type="number" step="0.01" name="end_magnitude" placeholder="Magnitued End">
+				<br><br>
+				<input class="btn-success" type="submit" name="querymagp_submit" value="Submit">
+			</form>
+		
+		
+		
+		<hr>
+		<h4 style="text-align: center;">Query 3: At some distance from specified coordinates</h4>
+		<hr>
+		
+			<form action="/query3" method="post">
+				<input type="number" step="0.0001" name="latitude" placeholder="latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="longitude" placeholder="longitude">
+				<br><br>
+				<input type="number" name="distance" placeholder="Distance">
+				<br><br>
+				<input class="btn-success" type="submit" name="query_3_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 4: Clusters of Earthquake</h4>
+		<hr>
+		
+			<form action="/query4" method="post">
+				<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="start_longitude" required placeholder="Start Longitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_latitude" required placeholder="End Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_longitude" required placeholder="End Longitude">
+				<br><br>
+				<input type="number" step="0.5" min="0" max="10" name="step" required placeholder="Steps in degrees">
+				<br><br>
+				<input type="submit" class="btn-success" name="query_4_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 5: show (list) the lat, long, and place (name), for every earthquake in that area</h4>
+		<hr>
+		
+			<form action="/query5" method="post">
+				<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="start_longitude" required placeholder="Start Longitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_latitude" required placeholder="End Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_longitude" required placeholder="End Latitude">
+				<br><br>
+				<input type="submit" class="btn-success" name="query_5_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 6: Delete by magnitude and date</h4>
+		<hr>
+		
+			<form action="/query6" method="post">
+				<input type="number" step="0.01" name="start_magnitude" placeholder="Start Magnitude">
+				<br><br>
+				<input type="number" step="0.01" name="end_magnitude" placeholder="End Magnitude">
+				<br><br>
+				<input type="date" name="start_date" placeholder="Date">
+				<br><br>
+				<input class = "btn-success" type="submit" name="query_6_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 7: Earthquakes within some degrees of coordinates</h4>
+		<hr>
+		
+			<form action="/query7" method="post">
+				<input type="text" name="state" placeholder="Enter State">
+				<br><br>
+				<input type="number" step="0.0001" name="start_latitude" required placeholder="Enter Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_longitude" required placeholder="Enter Longitiude">
+				<br><br>
+				<input type="number" name="distance" placeholder="Distance in Degrees">
+				<br><br>
+				<input type="submit" class="btn-success" name="query_7_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 8: Display details based on Country Code</h4>
+		<hr>
+		
+			<form action="/query1n" method="post">
+				<input type="text" name="ccode" placeholder="Enter Country Code">
+				<br><br>
+				<input class="btn-success" type="submit" name="query_1n_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 9: Show Country for pair of coordinates</h4>
+		<hr>
+		
+		<form action="/query2n" method="post">
+		
+			<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+			<br><br>
+			<input type="number" step="0.0001" name="start_longitude" required placeholder="Start Longitude">
+			<br><br>
+			<input type="number" step="0.0001" name="end_latitude" required placeholder="End Latitude">
+			<br><br>
+			<input type="number" step="0.0001" name="end_longitude" required placeholder="End Longitude">
+			<br><br>
+			<input class="btn-success" type="submit" name="query_2n_submit" value="Submit">
+		</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 10: Display place, latitude, longitude, time</h4>
+		<hr>
+		
+		<form action="/query3" method="post">
+			<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+			<br><br>
+			<input type="number" step="0.0001" name="start_longitude" required placeholder="Start Longitude">
+			<br><br>
+			<input type="number" step="0.0001" name="end_latitude" required placeholder="End Latitude">
+			<br><br>
+			<input type="number" step="0.0001" name="end_longitude" required placeholder="End Longitude">
+			<br><br>
+			<input type="number" step="0.1" name="magnitude" placeholder="magnitude">
+			<br><br>
+			<input class="btn-success" type="submit" name="query3_submit" value="Submit">
+		</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 11: Get earthquakes by point increment</h4>
+		<hr>
+		
+			<form action="/querymagp" method="post">
+				<input type="number" step="1" name="start_nstm" required placeholder="Start Nstm">
+				<br><br>
+				<input type="number" step="1" name="end_nstm" required placeholder="End Nstm">
+				<br><br>
+				<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="start_longitude" required placeholder="End Longitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_latitude" required placeholder="X value in KM (End Latitude)">
+				<br><br>
+				<input type="number" step="0.0001" name="end_longitude" required placeholder="Y value in KM (End Longitude)">
+				<br><br>
+				<input class="btn-success" type="submit" name="querymagp_submit" value="Submit">
+			</form>
+		
+		<hr>
+		<h4 style="text-align: center;">Query 12: Display place, latitude, longitude, time</h4>
+		<hr>
+		
+			<form action="/query3n" method="post">
+				<input type="number" step="0.0001" name="start_latitude" required placeholder="Start Latitude">
+				<br><br>
+				<input type="number" step="0.0001" name="start_longitude" required placeholder="Start Longitude">
+				<br><br>
+				<input type="number" step="0.0001" name="end_latitude" required placeholder="X value in KM">
+				<br><br>
+				<input type="number" step="0.0001" name="end_longitude" required placeholder="Y value in KM">
+				<br><br>
+				<input type="number" step="0.1" name="magnitude" placeholder="Enter Magnitude">
+				<br><br>
+				<input class="btn-success" type="submit" name="query3_submit" value="Submit">
+			</form>
+		
+		</main>
+		
+</body>
+
+

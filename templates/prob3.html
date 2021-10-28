@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="https://unpkg.com/cirrus-ui" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<title>Nishank Gujar Quiz 2</title>
+</head>
+
+<body>
+<h4>Query 3: display the place, then the latitude, longitude, and time for all quakes within</h4>
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Place</th>
+		<th>Magnitude</th>
+		<th>Time</th>
+		<th>Latitude</th>
+		<th>Longtitude</th>
+	</tr>
+
+	{% for row in result %}
+	<tr>
+		<td> {{ row[0] }} </td>
+		<td> {{ row[1] }} </td>
+		<td> {{ row[2] }} </td>
+		<td> {{ row[3] }} </td>
+		<td> {{ row[4] }} </td>
+		<td> {{ row[5] }} </td>
+	</tr>
+	{% endfor %}
+</table>
+</body>
+</html>

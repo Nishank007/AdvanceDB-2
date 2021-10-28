@@ -1,0 +1,21 @@
+
+<h1>Query 4:</h1>
+<table class="table">
+	{% for row in result["data"] %}
+	<tr>
+		{% for item in row %}
+			{% if item == result["max_quakes"] %}
+			<td><b>{{ item }}</b></td>
+			{% else %}			
+			<td>{{ item }}</td>
+			{% endif %}
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+
+max earthquake count: {{ result["max_quakes"] }}<br> 
+in {{ result["max_latitude"] }} N, {{ result["max_longitude"] }} W <br>
+and {{ (result["max_latitude"] - result["step"]) }} N, {{ (result["max_longitude"] + result["step"]) }} W
+</body>
+</html>
